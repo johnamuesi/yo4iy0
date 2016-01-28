@@ -23,7 +23,7 @@ var app = angular.module('yogiyo', ['ionic'])
      var vm = this;
      vm.videos = [];
      vm.youtubeParams = {
-      key: 'AIzaSyAHEtr54RzlyBQJvSmhiyOeFwi9sjAglbk',
+      key: '' ,
       type: 'video',
       maxResults: '5',
       part: 'id,snippet',
