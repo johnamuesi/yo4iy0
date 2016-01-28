@@ -20,18 +20,30 @@ var app = angular.module('yogiyo', ['ionic'])
 })
 
 .controller('YouTubeController', ["$http", function($http){
-    var vm = this;
-    vm.videos = [
-        {
-            title:"video1",
-            date:"1-1-2016",
-            thumbnail:"http://lorempixel.com/image_output/food-q-c-250-250-8.jpg"
-        },
-        {
-            title:"video1",
-            date:"1-1-2016",
-            thumbnail:"http://lorempixel.com/image_output/food-q-c-250-250-8.jpg"
-        }
-    ];
+     var vm = this;
+     vm.videos = [];
+     vm.youtubeParams = {
+      key: 'AIzaSyAHEtr54RzlyBQJvSmhiyOeFwi9sjAglbk',
+      type: 'video',
+      maxResults: '5',
+      part: 'id,snippet',
+      q: '',
+      order: 'viewCount',
+      channelId: 'UCxjaeRm7vB2l5T6-46uL1tQ',
+    }
+
+    $http.get('https://www.googleapis.com/youtube/v3/search', {
+        
+        params:vm.youtubeParams}).success(function(response){
+        angular.forEach(response.items, function(child){
+       // console.log (child);
+            
+         vm.videos.push(child);
+      });
+    });
+
+   
+    
+   // 
     
 }])
