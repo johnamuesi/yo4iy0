@@ -1,5 +1,5 @@
 
-var app = angular.module('yogiyo', ['ionic'])
+var app = angular.module('yogiyo', ['ionic', 'youtube-embed'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,7 @@ var app = angular.module('yogiyo', ['ionic'])
      var vm = this;
      vm.videos = [];
      vm.youtubeParams = {
-      key: '' ,
+      key: '',
       type: 'video',
       maxResults: '5',
       part: 'id,snippet',
